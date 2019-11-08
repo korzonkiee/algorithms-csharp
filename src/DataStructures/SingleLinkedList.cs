@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace src.DataStructures
 {
@@ -80,6 +81,42 @@ namespace src.DataStructures
             }
 
             Size--;
+        }
+
+        public void DeleteDuplicates()
+        {
+            // use your own hashset
+            var hashSet = new HashSet<int>();
+
+            var tmp = head;
+
+            while (tmp != null)
+            {
+                if (hashSet.Contains(tmp.Value))
+                {
+                    Delete(tmp.Value);
+                }
+                else
+                {
+                    hashSet.Add(tmp.Value);
+                }
+
+                tmp = tmp.Next;
+            }
+        }
+
+        public void DeleteMiddle()
+        {
+            var tmp = head;
+            var tmp2 = head;
+
+            while (tmp2 != null && tmp2.Next != null)
+            {
+                tmp = tmp.Next;
+                tmp2 = tmp2.Next.Next;
+            }
+
+            Delete(tmp.Value);
         }
 
         public int[] ToArray()
