@@ -36,5 +36,15 @@ namespace tests.DataStructures
 
             Assert.Equal(result, "ABC");
         }
+
+        [Fact]
+        public void Should_Print_String_With_Spaces4()
+        {
+            var spacer = new PrintStringWithSpaces();
+
+            string result = spacer.PrintWithSpacesWithCooldown("ABAB", 2);
+
+            Assert.Equal(result, "AB AB");
+        }
     }
 }
